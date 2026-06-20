@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gold:     #BF9255;
+  --gold-lt:  #E0AB78;
+  --brown:    #563A2D;
+  --beige:    #F2E8DC;
+  --cream:    #F5EDE3;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-gold:    #BF9255;
+  --color-gold-lt: #E0AB78;
+  --color-brown:   #563A2D;
+  --color-beige:   #F2E8DC;
+  --color-cream:   #F5EDE3;
+  --font-sans: "Roboto", "Roboto Fallback", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Roboto", "Roboto Fallback", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 86px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #333333;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+@keyframes reveal-section {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes reveal-section-content {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bullet-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(72px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal-section {
+      animation: reveal-section 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 26%;
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal-section > * {
+      animation: reveal-section-content 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 30%;
+      will-change: opacity, transform;
+    }
+
+    .facial-treatment-bullet {
+      animation: bullet-slide-in-right 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 24%;
+      will-change: opacity, transform;
+    }
+
+    .facial-treatment-bullet:nth-child(2) {
+      animation-range: entry 4% cover 28%;
+    }
+
+    .facial-treatment-bullet:nth-child(3) {
+      animation-range: entry 8% cover 32%;
+    }
+
+    .facial-treatment-bullet:nth-child(4) {
+      animation-range: entry 12% cover 36%;
+    }
+
+    .facial-treatment-bullet:nth-child(5) {
+      animation-range: entry 16% cover 40%;
+    }
+
+    .facial-treatment-bullet:nth-child(6) {
+      animation-range: entry 20% cover 44%;
+    }
+  }
 }
