@@ -65,7 +65,7 @@ export default function AntiAging() {
             >
               <source src={antiAgingVideo} type="video/mp4" />
               <source src={localAntiAgingVideo} type="video/mp4" />
-              <img src="/img/optimized/model6.png" alt="Anti aging model" />
+              Your browser does not support the anti-aging video.
             </video>
           </div>
         </div>

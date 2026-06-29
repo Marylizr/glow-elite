@@ -63,7 +63,7 @@ export default function FacialTreatments() {
             >
               <source src={animatedLogoVideo} type="video/mp4" />
               <source src={localAnimatedLogoVideo} type="video/mp4" />
-              <img src="/logo/logo-01.png" alt="Glow Elite aesthetic clinic" />
+              Glow Elite aesthetic clinic
             </video>
           </div>
         </div>

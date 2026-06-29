@@ -59,7 +59,7 @@ export default function LaserHairRemoval() {
             >
               <source src={laserHairRemovalVideo} type="video/mp4" />
               <source src={localLaserHairRemovalVideo} type="video/mp4" />
-              <img src="/img/optimized/modelo10.png" alt="Laser hair removal model 2" />
+              Your browser does not support the laser hair removal video.
             </video>
           </div>
 

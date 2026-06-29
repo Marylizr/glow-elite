@@ -63,11 +63,11 @@ export default function Hero() {
             preload="metadata"
             poster={heroModelPoster}
             aria-label="Glow Elite model"
-          >
-            <source src={heroModelVideo} type="video/mp4" />
-            <source src={localHeroModelVideo} type="video/mp4" />
-            <img src={heroModelPoster} alt="Glow Elite model" />
-          </video>
+            >
+              <source src={heroModelVideo} type="video/mp4" />
+              <source src={localHeroModelVideo} type="video/mp4" />
+              Your browser does not support the Glow Elite hero video.
+            </video>
         </div>
       </div>
 
