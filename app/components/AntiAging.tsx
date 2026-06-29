@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ScrollReveal from "./ScrollReveal";
 
 const caseList = [
   "Analysis (blood, urine, feces, hair, saliva) to assess the current status of the person",
@@ -12,13 +13,16 @@ const caseList = [
   "Study of eating habits",
 ];
 
+const antiAgingVideo = "https://res.cloudinary.com/da6il8qmv/video/upload/v1782760028/animacion1_tmlwgy.mp4";
+const localAntiAgingVideo = "/img/optimized/animacion1.mp4";
+
 export default function AntiAging() {
   return (
     <section id="antiaging" className="reveal-section bg-white">
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
         {/* Top grid */}
         <div className="mb-12 grid grid-cols-1 items-start gap-8 md:grid-cols-[0.9fr_0.75fr] md:gap-12">
-          <div>
+          <ScrollReveal>
             <h2 className="mb-6 font-serif text-4xl font-semibold leading-tight text-[#C7A678] sm:mb-8 sm:text-5xl md:text-6xl">
               Anti Aging
             </h2>
@@ -46,29 +50,36 @@ export default function AntiAging() {
               diet and exercise and personalized preventive measures can make our biological
               age less than chronological. It is &quot;being young&quot; or &quot;being old&quot; that matters.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="relative h-[420px] w-full sm:h-[560px] md:h-[620px]">
-            <Image
-              src="/img/optimized/model6.png"
-              alt="Anti aging model"
-              fill
-              loading="eager"
-              fetchPriority="high"
-              className="object-cover object-top"
-              sizes="(min-width: 768px) 50vw, 100vw"
-            />
+            <video
+              className="h-full w-full object-cover object-top"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/img/optimized/model6.png"
+              aria-label="Anti aging model"
+            >
+              <source src={antiAgingVideo} type="video/mp4" />
+              <source src={localAntiAgingVideo} type="video/mp4" />
+              <img src="/img/optimized/model6.png" alt="Anti aging model" />
+            </video>
           </div>
         </div>
 
         {/* Center paragraph */}
-        <p className="mx-auto mb-12 max-w-4xl text-center text-[14px] leading-relaxed text-[#7b7168]">
-          It consists of an exhaustive clinical history, a physical examination and an
-          analysis to evaluate the biological age of each person. The factors that determine
-          the biological age will be identified and a personalized treatment will be
-          recommended to restore the balance and prevent the appearance of diseases, in
-          order to stop the natural process of aging, and improve the health and quality of life.
-        </p>
+        <ScrollReveal className="mx-auto mb-12 max-w-4xl">
+          <p className="text-center text-[14px] leading-relaxed text-[#7b7168]">
+            It consists of an exhaustive clinical history, a physical examination and an
+            analysis to evaluate the biological age of each person. The factors that determine
+            the biological age will be identified and a personalized treatment will be
+            recommended to restore the balance and prevent the appearance of diseases, in
+            order to stop the natural process of aging, and improve the health and quality of life.
+          </p>
+        </ScrollReveal>
 
         {/* Bottom grid */}
         <div className="grid grid-cols-1 items-center gap-8 bg-[#EEF1EE] md:grid-cols-[0.9fr_1fr] md:gap-12">
@@ -82,7 +93,7 @@ export default function AntiAging() {
             />
           </div>
 
-          <div className="px-0 pb-8 md:px-6 md:pb-0">
+          <ScrollReveal className="px-0 pb-8 md:px-6 md:pb-0">
             <h3 className="mb-6 font-serif text-2xl font-semibold leading-snug text-[#9B7446] sm:text-3xl">
               Thus, depending on the case,<br />it will be carried out:
             </h3>
@@ -93,7 +104,7 @@ export default function AntiAging() {
                 </li>
               ))}
             </ul>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

@@ -1,5 +1,9 @@
 import Image from "next/image";
 import BookNowBar from "./BookNowBar";
+import ScrollReveal from "./ScrollReveal";
+
+const laserHairRemovalVideo = "https://res.cloudinary.com/da6il8qmv/video/upload/v1782766368/animacion4_ahssf2.mp4";
+const localLaserHairRemovalVideo = "/img/optimized/animacion4.mp4";
 
 export default function LaserHairRemoval() {
   return (
@@ -7,7 +11,7 @@ export default function LaserHairRemoval() {
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
         {/* Top grid */}
         <div className="mb-10 grid grid-cols-1 items-start gap-8 md:grid-cols-[0.85fr_0.8fr] md:gap-12">
-          <div>
+          <ScrollReveal>
             <h2 className="mb-6 font-serif text-4xl font-semibold leading-tight text-[#C7A678] sm:mb-8 sm:text-5xl md:text-6xl">
               Laser hair<br />removal
             </h2>
@@ -24,7 +28,7 @@ export default function LaserHairRemoval() {
               Glow Elite is a medical center in Barcelona where we do male and female laser
               hair removal with years of experience.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="relative h-[360px] w-full sm:h-[500px] md:h-[560px]">
             <Image
@@ -43,16 +47,23 @@ export default function LaserHairRemoval() {
         {/* Bottom grid */}
         <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[0.85fr_1fr] md:gap-12">
           <div className="relative h-[420px] w-full sm:h-[560px] md:h-[700px]">
-            <Image
-              src="/img/optimized/modelo10.png"
-              alt="Laser hair removal model 2"
-              fill
-              className="object-cover object-top"
-              sizes="(min-width: 768px) 50vw, 100vw"
-            />
+            <video
+              className="h-full w-full object-cover object-top"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/img/optimized/modelo10.png"
+              aria-label="Laser hair removal model 2"
+            >
+              <source src={laserHairRemovalVideo} type="video/mp4" />
+              <source src={localLaserHairRemovalVideo} type="video/mp4" />
+              <img src="/img/optimized/modelo10.png" alt="Laser hair removal model 2" />
+            </video>
           </div>
 
-          <div>
+          <ScrollReveal>
             <h3 className="mb-5 font-serif text-2xl font-semibold leading-snug text-[#9B7446] sm:text-3xl">
               Is laser hair removal different<br />in men and women?
             </h3>
@@ -87,7 +98,7 @@ export default function LaserHairRemoval() {
               care of the skin of the area to be treated. The treatment of laser hair removal is
               indicated for men and women.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

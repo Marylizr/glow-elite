@@ -1,4 +1,8 @@
 import Image from "next/image";
+import ScrollReveal from "./ScrollReveal";
+
+const bodyTreatmentVideo = "https://res.cloudinary.com/da6il8qmv/video/upload/v1782763491/animation2_jtya61.mp4";
+const localBodyTreatmentVideo = "/img/optimized/animation2.mp4";
 
 export default function BodyTreatments() {
   return (
@@ -8,13 +12,15 @@ export default function BodyTreatments() {
         <div className="mb-12 grid grid-cols-1 items-start gap-8 md:grid-cols-[1fr_0.8fr] md:gap-12">
           {/* Text */}
           <div>
-            <h2 className="mb-6 font-serif text-4xl font-semibold leading-tight text-[#C7A678] sm:text-5xl md:text-6xl">
-              Body Treatments
-            </h2>
-            <p className="mb-6 text-[15px] font-semibold leading-relaxed text-[#5c5148]">
-              We are pioneers in new body medical technologies and have designed
-              specific protocols for the following demands of body aesthetics.
-            </p>
+            <ScrollReveal>
+              <h2 className="mb-6 font-serif text-4xl font-semibold leading-tight text-[#C7A678] sm:text-5xl md:text-6xl">
+                Body Treatments
+              </h2>
+              <p className="mb-6 text-[15px] font-semibold leading-relaxed text-[#5c5148]">
+                We are pioneers in new body medical technologies and have designed
+                specific protocols for the following demands of body aesthetics.
+              </p>
+            </ScrollReveal>
 
             {[
               {
@@ -34,44 +40,55 @@ export default function BodyTreatments() {
                 desc: "with Fraxel fractional laser medical techniques, fractional radiofrequency, carboxytherapy, injection of collagen inducing substances and nutritional supplements. Varicose veins: with sclerotherapy and vascular laser. Nail fungus: Ribe Clinic performs the new Nd: Yag laser to treat the pathology known as \"onychomycosis\" or nail fungus.",
               },
             ].map((item, i) => (
-              <div key={i} className="mb-5">
+              <ScrollReveal key={i} className="mb-5" delayMs={i * 80}>
                 <strong className="mb-1 block text-[14px] text-[#5c5148]">{item.title}</strong>
                 <p className="text-[13px] leading-relaxed text-[#7b7168]">{item.desc}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
 
           {/* Model image */}
           <div className="relative h-90 w-full sm:h-125 md:h-162.5">
-            <Image
-              src="/img/optimized/modelo8.png"
-              alt="Body treatment model"
-              fill
-              className="object-cover object-top"
-              sizes="(min-width: 768px) 50vw, 100vw"
-            />
+            <video
+              className="h-full w-full object-cover object-top"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/img/optimized/modelo8.png"
+              aria-label="Body treatment model"
+            >
+              <source src={bodyTreatmentVideo} type="video/mp4" />
+              <source src={localBodyTreatmentVideo} type="video/mp4" />
+              Your browser does not support the body treatment video.
+            </video>
           </div>
         </div>
 
         {/* Extra paragraph row */}
         <div className="grid grid-cols-1 gap-6 pb-12 text-[14px] leading-relaxed text-[#7b7168] md:grid-cols-2 md:gap-12">
-          <p>
-            AT Glow Elite Clinic we advise and recommend the most appropriate body
-            treatments to meet patient&apos;s expectations individually. Thus:
-            <br /><br />
-            We decide on the body treatment protocol based on the patient&apos;s condition
-            and expectations. It is an individualized treatment to achieve the corporal
-            aesthetic results requested. We prescribe a maintenance body treatment plan
-            and teach healthy life habits.
-          </p>
-          <p>
-            Currently, there is an increase interest on body aesthetics and our patients
-            often request about corporal treatments.
-            <br /><br />
-            Both either men or women demand about aesthetic body treatments to lose weight,
-            eliminate fat from localized areas, remodeling, treating cellulite, flaccidity
-            and varicose veins.
-          </p>
+          <ScrollReveal>
+            <p>
+              AT Glow Elite Clinic we advise and recommend the most appropriate body
+              treatments to meet patient&apos;s expectations individually. Thus:
+              <br /><br />
+              We decide on the body treatment protocol based on the patient&apos;s condition
+              and expectations. It is an individualized treatment to achieve the corporal
+              aesthetic results requested. We prescribe a maintenance body treatment plan
+              and teach healthy life habits.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delayMs={120}>
+            <p>
+              Currently, there is an increase interest on body aesthetics and our patients
+              often request about corporal treatments.
+              <br /><br />
+              Both either men or women demand about aesthetic body treatments to lose weight,
+              eliminate fat from localized areas, remodeling, treating cellulite, flaccidity
+              and varicose veins.
+            </p>
+          </ScrollReveal>
         </div>
       </div>
 

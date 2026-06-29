@@ -16,15 +16,16 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 border-b border-[#eadfcf] backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6 lg:py-2.5">
         {/* Logo */}
         <Link href="#home">
           <Image
             src="/logo/logo-01.png"
             alt="Glow Elite Aesthetic Clinic"
-            width={80}
-            height={64}
-            className="h-10 w-auto sm:h-12"
+            width={112}
+            height={91}
+            className="h-13 w-auto sm:h-15 lg:h-17"
+            priority
           />
         </Link>
 

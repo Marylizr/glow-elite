@@ -33,7 +33,7 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main className="w-full overflow-x-hidden">
       <script
         id="local-business-schema"
         type="application/ld+json"

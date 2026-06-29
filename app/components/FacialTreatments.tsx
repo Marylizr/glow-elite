@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ScrollReveal from "./ScrollReveal";
 
 const treatments = [
   {
@@ -27,12 +28,15 @@ const treatments = [
   },
 ];
 
+const animatedLogoVideo = "https://res.cloudinary.com/da6il8qmv/video/upload/v1782760026/logo-animado_mubcpv.mp4";
+const localAnimatedLogoVideo = "/img/optimized/logo-animado.mp4";
+
 export default function FacialTreatments() {
   return (
     <section id="facial" className="reveal-section bg-white">
-      <div className="bg-[#F5EDE3]">
+      <div className="bg-white">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-5 py-12 sm:px-8 sm:py-16 md:grid-cols-[1fr_0.95fr] md:gap-12">
-          <div>
+          <ScrollReveal className="facial-copy-waves relative overflow-hidden py-4" direction="right">
             <h2 className="font-serif text-4xl font-semibold leading-none text-[#C7A678] sm:text-5xl md:text-7xl">
               Facial<br />Treatments
             </h2>
@@ -45,41 +49,52 @@ export default function FacialTreatments() {
               that we do not like to have more facial harmony or symmetry, treat any pathology
               of the skin or try to look younger.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="flex justify-center md:justify-end">
-            <Image
-              src="/logo/logo-01.png"
-              alt="Glow Elite aesthetic clinic"
-              width={620}
-              height={500}
-              className="h-auto w-full max-w-[320px] opacity-80 sm:max-w-[460px] md:max-w-[560px]"
-              priority
-            />
+            <video
+              className="h-auto w-full max-w-[320px] opacity-90 sm:max-w-[460px] md:max-w-[560px]"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Glow Elite aesthetic clinic"
+            >
+              <source src={animatedLogoVideo} type="video/mp4" />
+              <source src={localAnimatedLogoVideo} type="video/mp4" />
+              <img src="/logo/logo-01.png" alt="Glow Elite aesthetic clinic" />
+            </video>
           </div>
         </div>
       </div>
 
-      <div className="bg-white">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-5 py-12 sm:px-8 sm:py-16 md:grid-cols-[1.1fr_0.9fr] md:gap-12">
-          <div className="relative h-[380px] w-full sm:h-[520px] md:h-[640px]">
+      <div className="bg-cream">
+        <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-[1.05fr_0.95fr] md:gap-12">
+          <div className="relative h-[420px] w-full overflow-hidden sm:h-[560px] md:min-h-[760px] md:h-auto">
             <Image
               src="/img/optimized/model3.png"
               alt="Facial treatment model"
               fill
-              className="object-cover object-top"
+              className="object-cover object-[45%_top]"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
           </div>
 
-          <ul className="divide-y divide-[#eee3d8]">
+          <ul className="flex flex-col justify-center px-5 py-12 sm:px-8 sm:py-16 md:pr-[max(2rem,calc((100vw-72rem)/2))]">
             {treatments.map((t, i) => (
-              <li key={i} className="facial-treatment-bullet flex items-start gap-3 py-4 sm:gap-4">
-                <span className="mt-1.5 h-3 w-3 flex-shrink-0 rounded-full border-2 border-[#BF9255]" />
-                <div>
-                  <strong className="mb-1 block text-[14px] text-[#5c5148]">{t.title}</strong>
-                  <p className="text-[13px] leading-relaxed text-[#7b7168]">{t.desc}</p>
-                </div>
+              <li key={i} className="border-b border-[#e6d8c8] py-5 last:border-b-0 md:py-6">
+                <ScrollReveal className="flex items-start gap-4 sm:gap-5" delayMs={i * 90} direction="right">
+                  <span className="mt-2 h-3.5 w-3.5 flex-shrink-0 rounded-full border-2 border-[#BF9255]" />
+                  <div>
+                    <strong className="mb-2 block text-[17px] leading-snug text-[#5c5148] md:text-[19px]">
+                      {t.title}
+                    </strong>
+                    <p className="text-[15px] leading-relaxed text-[#7b7168] md:text-[17px]">
+                      {t.desc}
+                    </p>
+                  </div>
+                </ScrollReveal>
               </li>
             ))}
           </ul>

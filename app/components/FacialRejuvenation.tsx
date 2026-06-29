@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ScrollReveal from "./ScrollReveal";
 
 const steps = [
   { text: "Hydrate the skin: mesotherapy." },
@@ -32,7 +33,7 @@ export default function FacialRejuvenation() {
         <div className="absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,rgba(242,232,220,0.92)_0%,rgba(242,232,220,0.78)_42%,rgba(242,232,220,0.38)_70%,rgba(242,232,220,0.08)_100%)] sm:bg-[linear-gradient(90deg,rgba(242,232,220,0.86)_0%,rgba(242,232,220,0.66)_35%,rgba(242,232,220,0.24)_58%,rgba(242,232,220,0)_82%)] md:w-[76%]" />
 
         <div className="relative z-10 mx-auto flex min-h-[620px] max-w-6xl flex-col justify-center px-5 py-10 sm:min-h-[680px] sm:px-8 md:min-h-[720px] lg:min-h-[760px]">
-          <div className="max-w-[660px]">
+          <ScrollReveal className="max-w-[660px]">
             <h2 className="mb-7 text-4xl font-black leading-[0.95] text-white drop-shadow-md sm:text-5xl md:text-6xl lg:text-7xl">
             Facial rejuvenation:<br />What does it mean?
             </h2>
@@ -50,7 +51,7 @@ export default function FacialRejuvenation() {
                 </li>
               ))}
             </ul>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
